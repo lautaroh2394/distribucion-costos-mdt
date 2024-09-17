@@ -1,0 +1,6 @@
+Distribución de costos MDT
+
+Este proyecto es una webapp sencilla que distribuye un costo entre los contribuyentes configurados. Cada contribuyente tiene una categoría asociada y esa categoría tiene un peso. Cuanto más peso tenga la categoría, más proporción corresponderá al contribuyente.
+El calculo del porcentaje que corresponde a cada parte es simplemente el peso de su categoría sobre la suma de los pesos de todos los contribuyentes.
+
+La app permite jugar con los pesos y las categorías, recalculando en el instante las proporciones y actualizando los gráficos.
