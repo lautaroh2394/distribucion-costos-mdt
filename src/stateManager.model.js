@@ -63,7 +63,7 @@ export class StateManager {
         const contributorsWeights = this.contributors.map(contributor => 
             this.categories.find(c => c.name == contributor.category)?.weight
           )
-        if (contributorsWeights.some(w => isNaN(w))) return manager.clear();
+        if (contributorsWeights.some(w => isNaN(w))) return [];
         
         const totalWeight = contributorsWeights.reduce((p,a)=> a+p,0)
         return this.contributors.map(contributor => {
