@@ -7,6 +7,7 @@ import { hideContributorForm } from './contributor/hideCategoryForm.function';
 import { StateManager } from '../stateManager.model';
 import { categoriesRender, contributorsRender } from './initialDataRender.function';
 import { renderGraphs } from './renderGraphs.function';
+import { renderTable } from './renderTable.function';
 
 export function setEvents(){
     addCategoryButton.addEventListener('click', ()=>{
@@ -45,4 +46,5 @@ export function setEvents(){
       })
 
       expense.addEventListener('change', renderGraphs)
+      expense.addEventListener('change', renderTable)
 }

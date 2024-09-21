@@ -58,4 +58,22 @@ export class StateManager {
     setShowExpense(val){
         this.showExpense = val
     }
+
+    getDigest(){
+        const contributorsWeights = this.contributors.map(contributor => 
+            this.categories.find(c => c.name == contributor.category)?.weight
+          )
+        if (contributorsWeights.some(w => isNaN(w))) return manager.clear();
+        
+        const totalWeight = contributorsWeights.reduce((p,a)=> a+p,0)
+        return this.contributors.map(contributor => {
+            const contributorWeight = this.categories.find(c => c.name == contributor.category).weight
+            const proportion = contributorWeight/totalWeight
+            return {
+                contributor,
+                proportion,
+                amount: this.showExpense ? parseInt(expense.value * proportion * 100) / 100 : proportion
+            }
+        })
+    }
 }

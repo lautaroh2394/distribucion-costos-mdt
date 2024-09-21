@@ -4,6 +4,7 @@ import { renderGraphs } from './src/functions/renderGraphs.function';
 import { categoriesRender, contributorsRender, initialDataRender } from './src/functions/initialDataRender.function';
 import { setEvents } from './src/functions/setEvents.function';
 import { EXAMPLE_CONFIG } from './src/example';
+import { renderTable } from './src/functions/renderTable.function';
 
 window.addEventListener('load', () => {
   let config = EXAMPLE_CONFIG;
@@ -31,7 +32,7 @@ window.addEventListener('load', () => {
   
   StateManager.instance = new StateManager({
     ...config,
-    listeners: [renderGraphs]
+    listeners: [renderGraphs, renderTable]
   })
 
   setEvents() 
@@ -43,5 +44,6 @@ window.addEventListener('load', () => {
     StateManager.GetInstance().setShowExpense(true)
     showExpenseButton.click()
     expense.dispatchEvent(new Event('click'))
+    expense.dispatchEvent(new Event('change'))
   }
 });
